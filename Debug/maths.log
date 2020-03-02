@@ -1,3 +1,14 @@
 ﻿  Source.cpp
-D:\c++\maths\Source.cpp(40,39): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+D:\c++\maths\Source.cpp(14,30): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+D:\c++\maths\Source.cpp(14,24): warning C4244: 'initializing': conversion from 'double' to 'const int', possible loss of data
+D:\c++\maths\Source.cpp(14,67): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+D:\c++\maths\Source.cpp(14,61): warning C4244: 'initializing': conversion from 'double' to 'const int', possible loss of data
+D:\c++\maths\Source.cpp(43,52): warning C4307: '*': signed integral constant overflow
+D:\c++\maths\Source.cpp(49,52): warning C4307: '*': signed integral constant overflow
+D:\c++\maths\Source.cpp(56,52): warning C4307: '*': signed integral constant overflow
+D:\c++\maths\Source.cpp(62,52): warning C4307: '*': signed integral constant overflow
+D:\c++\maths\Source.cpp(68,9): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+D:\c++\maths\Source.cpp(70,52): warning C4307: '*': signed integral constant overflow
+D:\c++\maths\Source.cpp(74,67): warning C4307: '*': signed integral constant overflow
+D:\c++\maths\Source.cpp(76,66): warning C4307: '*': signed integral constant overflow
   maths.vcxproj -> D:\c++\maths\Debug\maths.exe

@@ -1,0 +1,3 @@
+﻿  Source.cpp
+D:\c++\maths\Source.cpp(40,39): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+  maths.vcxproj -> D:\c++\maths\Debug\maths.exe

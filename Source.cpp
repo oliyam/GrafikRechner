@@ -11,22 +11,35 @@
 using namespace std;
 using std::string;
 
-double multiplikator = 6;
+double multiplikator = 3;
 const int SCREEN_WIDTH = 192 * multiplikator, SCREEN_HEIGHT = 108 * multiplikator;
 bool quit = false, hidden = false;
 Uint32* pixels = new Uint32[SCREEN_WIDTH * SCREEN_HEIGHT];
 
+/*
+struct expression
+{
+private:
+	bool 
+	//operator o;
+	double a, b;
+	expression *e1, *e2;
+public:
+	double calculate() {
+		if()
+		return
+	}
+};
+*/
 
 struct function
 {
 public:
-	double penis(double x) {
-		return abs(sin(x)) +5.0 * exp(-pow(x, 100.0)) * cos(x);
-	}
+	bool l=1;
 	double at(double x) {
-		return sin(x);
+		return l ? 1 / (x * x):abs(sin(x)) + 5.0 * exp(-pow(x, 100.0)) * cos(x);
 	}
-	function() {}
+	function(bool i) { l = i; }
 };
 
 /*
@@ -107,22 +120,22 @@ void drawGrid(Uint32* pixels, double x1, double x2, double y1, double y2, double
 	}
 
 	for (int x = 0; x < SCREEN_WIDTH; x++)
-		pixels[SCREEN_HEIGHT / 2 * SCREEN_WIDTH + x] = (255 * 256 * 256 * 256 + 255 * 256 * 256 + 255 * 256 + 255);
+		pixels[SCREEN_HEIGHT / 2 * SCREEN_WIDTH + x] = 4294967295;
 	for (int y = 0; y < SCREEN_HEIGHT; y++)
-		pixels[y * SCREEN_WIDTH + SCREEN_WIDTH / 2] = (255 * 256 * 256 * 256 + 255 * 256 * 256 + 255 * 256 + 255);
+		pixels[y * SCREEN_WIDTH + SCREEN_WIDTH / 2] = 4294967295;
 }
 
-void drawFunction(Uint32* pixels, function f, double x1, double x2, double y1, double y2) {
+void drawFunction(Uint32* pixels, function f, double xa, double xb, double x1, double x2, double y1, double y2, Uint8* color) {
 	double
 		interval_x = abs(x2 - x1) / SCREEN_WIDTH,
-		interval_y = abs(y2 - y1) / SCREEN_HEIGHT
+		interval_y = abs(y2 * 2.0) / SCREEN_HEIGHT
 	;
-	for (int x = 0; x < SCREEN_WIDTH-1; x++) {
-		int ya = (-f.at((x - SCREEN_WIDTH / 2) * interval_x)) / interval_y +(SCREEN_HEIGHT / 2);
-		int yb = (-f.at((x+1 - SCREEN_WIDTH / 2) * interval_x)) / interval_y + (SCREEN_HEIGHT / 2);
-		Uint8 color[] = {255,0,255,0};
-		drawLine(color, pixels, vec2(x,ya), vec2(x+1,yb));
-	}
+	if( interval_y != 0 && interval_x != 0)
+		for (int x = 1/interval_x * xa + SCREEN_WIDTH / 2.0; x < 1/interval_x * xb + SCREEN_WIDTH / 2.0; x++) {
+			double ya = (-f.at((x - SCREEN_WIDTH / 2.0) * interval_x)) / interval_y + (SCREEN_HEIGHT / 2.0);
+			double yb = (-f.at((x + 1.0 - SCREEN_WIDTH / 2.0) * interval_x)) / interval_y + (SCREEN_HEIGHT / 2.0);
+			drawLine(color, pixels, vec2(x,ya), vec2(x+1.0,yb));
+		}
 }
 
 int main()
@@ -132,13 +145,20 @@ int main()
 	SDL_Init(SDL_INIT_VIDEO);
 	SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, 0);
 
-	SDL_Window* window = SDL_CreateWindow("GrafikRechner", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_RESIZABLE);
+	SDL_Window* window = SDL_CreateWindow("GrafikRechner", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, 0);//SDL_WINDOW_RESIZABLE);
 	SDL_Renderer* renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
 	SDL_Texture* texture = SDL_CreateTexture(renderer, SDL_PIXELFORMAT_ARGB8888, SDL_TEXTUREACCESS_STATIC, SCREEN_WIDTH, SCREEN_HEIGHT);
 
-	function f;
-	cout << getSum(f, 0, 4, 8, 1) << endl;
-	int x2 = 10, y2 = 10;
+
+	function f1(0),f2(1);
+	cout << getSum(f1, 0, 4, 8, 1) << endl;
+	Uint8 color[3][4] = {
+	{ 255, 0, 255, 0 },
+	{ 255, 255, 0, 0 },
+	{ 255, 0, 0, 255 }
+	};
+
+	double x2 = 4, y2 = 2;
 	while (!quit)
 	{
 		//event handling
@@ -176,10 +196,10 @@ int main()
 			}
 			break;
 		}
-		cout << -x2 << " " << x2 << " " << -y2 << " " << y2 << endl;
 		memset(pixels, 0, SCREEN_WIDTH * SCREEN_HEIGHT * sizeof(Uint32));
-		drawGrid(pixels, -x2, x2, -y2, y2 , 3.141);
-		drawFunction(pixels, f, -x2, x2, -y2, y2);
+		drawGrid(pixels, -x2, x2, -y2, y2 , 1);
+		drawFunction(pixels, f1, -3, 3, -x2, x2, -y2, y2, color[0]);
+		drawFunction(pixels, f2, -x2, x2, -x2, x2, -y2, y2, color[1]);
 		SDL_UpdateTexture(texture, NULL, pixels, SCREEN_WIDTH * sizeof(Uint32));
 		SDL_RenderClear(renderer);
 		SDL_RenderCopy(renderer, texture, NULL, NULL);

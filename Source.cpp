@@ -198,7 +198,7 @@ int main()
 		}
 		memset(pixels, 0, SCREEN_WIDTH * SCREEN_HEIGHT * sizeof(Uint32));
 		drawGrid(pixels, -x2, x2, -y2, y2 , 1);
-		drawFunction(pixels, f1, -3, 3, -x2, x2, -y2, y2, color[0]);
+		//drawFunction(pixels, f1, -3, 3, -x2, x2, -y2, y2, color[0]);
 		drawFunction(pixels, f2, -x2, x2, -x2, x2, -y2, y2, color[1]);
 		SDL_UpdateTexture(texture, NULL, pixels, SCREEN_WIDTH * sizeof(Uint32));
 		SDL_RenderClear(renderer);

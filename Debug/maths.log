@@ -1,12 +1,12 @@
 ﻿  Source.cpp
-D:\c++\maths\Source.cpp(15,30): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-D:\c++\maths\Source.cpp(15,24): warning C4244: 'initializing': conversion from 'double' to 'const int', possible loss of data
-D:\c++\maths\Source.cpp(15,67): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-D:\c++\maths\Source.cpp(15,61): warning C4244: 'initializing': conversion from 'double' to 'const int', possible loss of data
-D:\c++\maths\Source.cpp(52,10): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-D:\c++\maths\Source.cpp(60,14): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-D:\c++\maths\Source.cpp(62,28): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-D:\c++\maths\Source.cpp(73,14): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-D:\c++\maths\Source.cpp(75,28): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-D:\c++\maths\Source.cpp(134,14): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-  maths.vcxproj -> D:\c++\maths\Debug\maths.exe
+E:\c++\maths\Source.cpp(15,30): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+E:\c++\maths\Source.cpp(15,24): warning C4244: 'initializing': conversion from 'double' to 'const int', possible loss of data
+E:\c++\maths\Source.cpp(15,67): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+E:\c++\maths\Source.cpp(15,61): warning C4244: 'initializing': conversion from 'double' to 'const int', possible loss of data
+E:\c++\maths\Source.cpp(52,10): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+E:\c++\maths\Source.cpp(60,14): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+E:\c++\maths\Source.cpp(62,28): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+E:\c++\maths\Source.cpp(73,14): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+E:\c++\maths\Source.cpp(75,28): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+E:\c++\maths\Source.cpp(134,14): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+  maths.vcxproj -> E:\c++\maths\Debug\maths.exe

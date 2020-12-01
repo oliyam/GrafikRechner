@@ -1,10 +1,10 @@
 #pragma once
-
+#define SDL_MAIN_HANDLED
 #include <SDL.h>
-#undef main
+//#undef main
 #include <iostream>
 #include <algorithm>   
-#include <cmath>
+//#include <cmath>
 #include <windows.h>
 #include "vectors.h"
 
@@ -140,6 +140,7 @@ void drawFunction(Uint32* pixels, function f, double xa, double xb, double x1, d
 
 int main()
 {
+	SDL_SetMainReady();
 	SDL_Event event;
 
 	SDL_Init(SDL_INIT_VIDEO);
